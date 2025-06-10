@@ -6,12 +6,15 @@ In response to the challenge instruction to redesign the skip selection page, I 
 
 I began by outlining key points that would enhance the user experience. Drawing inspiration from contemporary design patterns and after a period of brainstorming, I created an initial wireframe to guide the redesign process.
 
+Here is the wireframe: ![Wireframe Sketch](./assets/desktop_wireframe.jpg) , ![Wireframe Sketch](./assets/mobile_view_wireframe.jpg)
+
 ---
 
 ## Design Goals
 
 - **Clarity:**  
   Present skip sizes, prices, and restrictions in a way that allows users to compare options at a glance.
+  Introduced a detailed price breakdown to enhance transparency and build user trust.
 
 - **Responsiveness:**  
   Ensure the layout adapts fluidly to all screen sizes, from mobile devices to large desktops.
@@ -36,7 +39,7 @@ I began by outlining key points that would enhance the user experience. Drawing 
 ## My Process
 
 1. **User Experience Research:**  
-   I identified pain points and opportunities for improvement in the original design.
+   I identified pain points and opportunities for improvement in the original design even tho the given design is good.
 
 2. **Inspiration & Ideation:**  
    I explored modern web design trends and gathered inspiration to inform the new direction.
@@ -64,6 +67,7 @@ The redesigned skip selection page now offers:
 
 - A clean, modern, and visually engaging interface
 - Effortless comparison of skip options
+- detailed price breakdown to enhance transparency and build user trust.
 - A fully responsive and accessible experience
 - Clear navigation and user guidance through the booking process
 - A codebase that is organized, maintainable, and ready for future enhancements
