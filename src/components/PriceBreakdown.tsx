@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Calculator, Check } from 'lucide-react';
 
@@ -11,6 +10,11 @@ interface Skip {
   image: string;
   allowedOnRoad: boolean;
   description: string;
+  binBags: string;
+  dimensions: string;
+  price_before_vat?: number;
+  vat?: number;
+  transport_cost?: number | null;
 }
 
 interface PriceBreakdownProps {
@@ -20,12 +24,19 @@ interface PriceBreakdownProps {
 const PriceBreakdown: React.FC<PriceBreakdownProps> = ({ skip }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Calculate base price (price_before_vat minus transport_cost if present)
+  const basePrice = skip.price_before_vat !== undefined
+    ? skip.transport_cost
+      ? skip.price_before_vat - skip.transport_cost
+      : skip.price_before_vat
+    : undefined;
+
+  // Always show VAT and transport cost if present in skip
   const breakdown = [
-    { item: 'Skip hire (14 days)', price: skip.price - 50 },
-    { item: 'Delivery & collection', price: 35 },
-    { item: 'Disposal & recycling', price: 15 },
-    { item: 'Environmental levy', price: 0, note: 'Included' }
-  ];
+    basePrice !== undefined ? { item: 'Base Price', price: basePrice } : null,
+    skip.vat !== undefined ? { item: 'VAT', price: Math.round((skip.price_before_vat || 0) * (skip.vat / 100)) } : null,
+    { item: 'Transport Cost', price: skip.transport_cost },
+  ].filter(Boolean);
 
   return (
     <div className="bg-gradient-to-br from-slate-800/50 to-slate-700/50 backdrop-blur-sm border border-slate-600/50 rounded-2xl p-6 mb-8">
@@ -54,15 +65,12 @@ const PriceBreakdown: React.FC<PriceBreakdownProps> = ({ skip }) => {
               <div key={index} className="flex items-center justify-between py-2 border-b border-slate-600/50 last:border-b-0">
                 <div className="flex items-center space-x-2">
                   <Check className="h-4 w-4 text-green-400" />
-                  <span className="text-slate-300">{item.item}</span>
-                  {item.note && (
-                    <span className="text-xs bg-green-500/20 text-green-400 px-2 py-1 rounded-full">
-                      {item.note}
-                    </span>
-                  )}
+                  <span className="text-slate-300">{item!.item}</span>
                 </div>
                 <span className="font-semibold text-white">
-                  {item.price === 0 ? 'FREE' : `£${item.price}`}
+                  {item!.item === 'Transport Cost'
+                    ? (item!.price === null ? '-' : item!.price === 0 ? 'FREE' : `£${item!.price}`)
+                    : `£${item!.price}`}
                 </span>
               </div>
             ))}
