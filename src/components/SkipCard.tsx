@@ -77,7 +77,7 @@ const SkipCard = ({ skip, isSelected, onSelect }: SkipCardProps) => {
               <p className="text-xs sm:text-sm text-slate-300">{skip.period}</p>
             </div>
             <div className="text-right ml-4">
-              <div className="text-xl sm:text-2xl font-bold text-white">
+              <div className="text-xl sm:text-2xl font-bold text-green-600">
                 £{skip.price}
               </div>
             </div>
@@ -110,7 +110,7 @@ const SkipCard = ({ skip, isSelected, onSelect }: SkipCardProps) => {
             ) : (
               <div className="flex items-center gap-1 text-orange-400 text-xs sm:text-sm">
                 <AlertTriangle className="h-3 w-3 sm:h-4 sm:w-4" />
-                Private property only
+                Not allowed on the road
               </div>
             )}
           </div>
