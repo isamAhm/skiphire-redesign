@@ -1,8 +1,8 @@
-# Skip Selection Page Redesign – Approach & Rationale
+# Skip Selection Page Redesign Challenge – Approach & Rationale
 
 ## Overview
 
-In response to the instruction to redesign the skip selection page, I approached the task with a strong emphasis on clean, maintainable code, responsive layouts, and modern UI/UX principles. My primary objective was to deliver a user experience that is visually appealing, intuitive, and seamless across all devices.
+In response to the challenge instruction to redesign the skip selection page, I approached the task with a strong emphasis on clean, maintainable code, responsive layouts, and modern UI/UX principles. My primary objective was to deliver a user experience that is visually appealing, intuitive, and seamless across all devices.
 
 I began by outlining key points that would enhance the user experience. Drawing inspiration from contemporary design patterns and after a period of brainstorming, I created an initial wireframe to guide the redesign process.
 
